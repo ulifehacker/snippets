@@ -1,0 +1,13 @@
+---
+title: URL参数解析
+---
+
+```
+import urlparse
+def qs(url):
+    query = urlparse.urlparse(url).query
+    return dict([(k,v[0]) for k,v in urlparse.parse_qs(query).items()])
+
+```
+
+print qs('http://url/api?param=2&param2=4') 返回的结果:{'param':'2','param2':'4'} 
